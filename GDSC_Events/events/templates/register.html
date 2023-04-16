@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card border-0 shadow-sm rounded-lg p-4">
+          <h1 class="text-center mb-4">{{ event.name }}</h1>
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group text-center mb-4">
+              <label for="{{ form.name.id_for_label }}">Name</label>
+              {{ form.name }}
+            </div>
+            <div class="form-group text-center mb-4">
+              <label for="{{ form.email.id_for_label }}">Email</label>
+              {{ form.email }}
+            </div>
+            <div class="form-group text-center mb-4">
+              <label for="{{ form.phone.id_for_label }}">Phone #</label>
+              {{ form.phone }}
+            </div>
+            <div class="form-group text-center mb-4">
+              <label for="{{ form.roll_no.id_for_label }}">Roll Number</label>
+              {{ form.roll_no }}
+            </div>
+            <div class="form-group text-center mb-4">
+              <label for="{{ form.institute.id_for_label }}">Institute</label>
+              {{ form.institute }}
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-primary btn-block rounded-pill">
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block styles %}
+  <style>
+    .btn-primary {
+      background-color: #4CAF50;
+      border-color: #4CAF50;
+    }
+
+    .btn-primary:hover {
+      background-color: #388E3C;
+      border-color: #388E3C;
+    }
+  </style>
+{% endblock %}

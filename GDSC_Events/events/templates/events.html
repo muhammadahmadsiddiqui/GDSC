@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block style %}
+
+<style>
+.card {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border: none;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #6c757d;
+}
+
+.card-button {
+  margin-top: 10px;
+}
+
+.card-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.card-button a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.btn-register {
+  background-color: #4285f4;
+}
+
+.btn-register:hover {
+  background-color: #357ae8;
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <h1 class="mb-4">Events</h1>
+    <div class="row">
+      {% for event in events %}
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            {% if event.picture %}
+            <img src="{{ event.picture.url }}" class="card-img-top" alt="{{ event.name }}">
+            {% endif %}
+            <div class="card-body">
+              <h2 class="card-title">{{ event.name }}</h2>
+              <p class="card-text">Date: {{ event.date }}</p>
+              <p class="card-text">Location: {{ event.location }}</p>
+              <p class="card-text">{{ event.description }}</p>
+              <div class="card-button">
+                <a href="{% url 'register' event.id %}" class="btn btn-primary btn-register">Register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

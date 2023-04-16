@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  GDSC Events - Home
+{% endblock %}
+
+{% block content %}
+  <div class="row mb-5">
+    <div class="col-md-8 mx-auto text-center">
+      <h1 class="fw-bold mb-3">Welcome to GDSC Events</h1>
+      <p class="lead">
+        GDSC Events is a community of student developers interested in Google technologies. We organize workshops, hackathons, and other events to help students grow their skills and build projects that make a difference in their local community.
+      </p>
+      <a href="{% url 'events' %}" class="btn btn-lg btn-primary">View Upcoming Events</a>
+    </div>
+  </div>
+{% endblock %}
